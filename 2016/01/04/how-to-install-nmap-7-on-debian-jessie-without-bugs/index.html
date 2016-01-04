@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<title>How to install nmap 7 on debian jessie (without bugs)</title>
+	<meta name="description" content="" />
+
+	<meta name="HandheldFriendly" content="True" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<link rel="stylesheet" type="text/css" href="../../../../assets/css/style.css?v=2af72be249" />
+
+	<link rel="canonical" href="http://magiknono.github.io/2016/01/04/how-to-install-nmap-7-on-debian-jessie-without-bugs/" />
+    <meta name="referrer" content="origin" />
+    
+    <meta property="og:site_name" content="IT things" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="How to install nmap 7 on debian jessie (without bugs)" />
+    <meta property="og:description" content="NMAP 7.01 is out ! Nmap 7.01 is out since December 19th but my first install didn&#x27;t work on debian 8 with the basic steps of the documentation : bzip2 -cd nmap-7.01.tar.bz2 | tar xvf - cd nmap-7...." />
+    <meta property="og:url" content="http://magiknono.github.io/2016/01/04/how-to-install-nmap-7-on-debian-jessie-without-bugs/" />
+    <meta property="og:image" content="http://magiknono.github.io/content/images/2016/01/nmap-project.png" />
+    <meta property="article:published_time" content="2016-01-04T19:04:53.505Z" />
+    <meta property="article:modified_time" content="2016-01-04T19:20:31.717Z" />
+    <meta property="article:tag" content="linux" />
+    <meta property="article:tag" content="nmap" />
+    <meta property="article:tag" content="debian" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="How to install nmap 7 on debian jessie (without bugs)" />
+    <meta name="twitter:description" content="NMAP 7.01 is out ! Nmap 7.01 is out since December 19th but my first install didn&#x27;t work on debian 8 with the basic steps of the documentation : bzip2 -cd nmap-7.01.tar.bz2 | tar xvf - cd nmap-7...." />
+    <meta name="twitter:url" content="http://magiknono.github.io/2016/01/04/how-to-install-nmap-7-on-debian-jessie-without-bugs/" />
+    <meta name="twitter:image:src" content="http://magiknono.github.io/content/images/2016/01/nmap-project.png" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "publisher": "IT things",
+    "author": {
+        "@type": "Person",
+        "name": "Arnaud",
+        "url": "http://magiknono.github.io/author/arnaud",
+        "sameAs": "http://magiknono.github.io",
+        "description": null
+    },
+    "headline": "How to install nmap 7 on debian jessie (without bugs)",
+    "url": "http://magiknono.github.io/2016/01/04/how-to-install-nmap-7-on-debian-jessie-without-bugs/",
+    "datePublished": "2016-01-04T19:04:53.505Z",
+    "dateModified": "2016-01-04T19:20:31.717Z",
+    "image": "http://magiknono.github.io/content/images/2016/01/nmap-project.png",
+    "keywords": "linux, nmap, debian",
+    "description": "NMAP 7.01 is out ! Nmap 7.01 is out since December 19th but my first install didn&#x27;t work on debian 8 with the basic steps of the documentation : bzip2 -cd nmap-7.01.tar.bz2 | tar xvf - cd nmap-7...."
+}
+    </script>
+
+    <meta name="generator" content="Ghost 0.7" />
+    <link rel="alternate" type="application/rss+xml" title="IT things" href="http://magiknono.github.io/rss/" />
+    <script>var disqus = 'magiknono';</script>
+</head>
+
+<body class="post-template tag-linux tag-nmap tag-debian">
+	
+	<nav id="menu">
+	<a class="close-button">Close</a>
+	<div class="nav-wrapper">
+		<p class="nav-label">Menu</p>
+		<ul>
+			<li class="nav-home" role="presentation"><a href="http://magiknono.github.io/">Home</a></li>
+			<li class="nav-infosec" role="presentation"><a href="http://magiknono.github.io/infosec">Infosec</a></li>
+			<li class="nav-linux" role="presentation"><a href="http://magiknono.github.io/linux">Linux</a></li>
+			<li class="nav-rss"><a href="http://magiknono.github.io/rss/"><i class="ic ic-rss"></i> Subscribe</a></li>
+		</ul>
+	</div>
+</nav>
+	
+	<section id="wrapper">
+		<a class="hidden-close"></a>
+		
+
+<div class="progress-container">
+	<span class="progress-bar"></span>
+</div>
+
+<header id="post-header" class="has-cover" >
+	<div class="inner">
+		<nav id="navigation">
+			<span class="blog-logo">
+				<a href="http://magiknono.github.io"><img src="../../../../content/images/2016/01/privateinvestocat.jpg" alt="Blog Logo" /></a>
+			</span>
+			<span id="menu-button" class="nav-button">
+				<a class="menu-button"><i class="ic ic-menu"></i> Menu</a>
+			</span>
+		</nav>
+		<h1 class="post-title">How to install nmap 7 on debian jessie (without bugs)</h1>
+		<span class="post-meta"><a href="../../../../author/arnaud/index.html">Arnaud</a> | <time datetime="2016-01-04">04 Jan 2016</time></span>
+		<div class="post-cover cover" style="background-image: url('../../../../content/images/2016/01/nmap-project.png');"></div>
+	</div>
+</header>
+
+<main class="content" role="main">
+	<article class="post tag-linux tag-nmap tag-debian featured">
+		<div class="inner">
+		
+			<section class="post-content">
+				<h1 id="nmap701isout">NMAP 7.01 is out !</h1>
+
+<p><strong>Nmap 7.01</strong> is out since December 19th but <u>my first install didn't work</u> on debian 8 with the basic steps of the <a href="https://nmap.org/download.html">documentation</a> :</p>
+
+<pre><code>bzip2 -cd nmap-7.01.tar.bz2 | tar xvf -
+cd nmap-7.01
+./configure
+make
+su root
+make install
+</code></pre>
+
+<h3 id="abug">A bug ?</h3>
+
+<p>My first attempt to type zenmap in the terminal show a xfce dialog box with the following error:</p>
+
+<blockquote>
+  <p>"[Errno 2] File or Folder not found: '/usr/share/zenmap/config"</p>
+</blockquote>
+
+<p>And the same error when typing <code>nmap -v</code></p>
+
+<p>If you resolve this issue, zenmap is launching but there are lot of NSE scripts errors.</p>
+
+<p>It's due that you have compiled without <strong>openssl</strong>. <br />
+see <code>nmap --versions</code></p>
+
+<h3 id="sohowtofixit">So how to fix it ?</h3>
+
+<pre><code>sudo apt-get install libssl-dev
+wget https://nmap.org/dist/nmap-7.01.tar.bz2
+bzip2 -cd nmap-7.01.tar.bz2 | tar xvf -
+cd nmap-7.01
+./configure
+make
+su root
+make install
+mkdir -p /usr/share/zenmap/config
+sudo cp /usr/local/share/zenmap/config/* /usr/share/zenmap/config/
+</code></pre>
+
+<p><u><strong>Now we can verify in the terminal</strong> :</u> <br />
+<code>nmap -v
+ nmap --version
+ zenmap</code></p>
+
+<h3 id="itworks">It Works !</h3>
+
+<p><em>I think it will works on ubuntu...</em> <br />
+<img src="../../../../content/images/2016/01/nmap.png" alt="NMAP" /></p>
+			</section>
+			
+			<section class="post-info">
+				
+				<div class="post-share">
+					<a class="twitter" href="https://twitter.com/share?text=How to install nmap 7 on debian jessie (without bugs)&url=http://magiknono.github.io/2016/01/04/how-to-install-nmap-7-on-debian-jessie-without-bugs/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+						<i class="ic ic-twitter"></i><span class="hidden">Twitter</span>
+					</a>
+					<a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://magiknono.github.io/2016/01/04/how-to-install-nmap-7-on-debian-jessie-without-bugs/" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+						<i class="ic ic-facebook"></i><span class="hidden">Facebook</span>
+					</a>
+					<a class="googleplus" href="https://plus.google.com/share?url=http://magiknono.github.io/2016/01/04/how-to-install-nmap-7-on-debian-jessie-without-bugs/" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+						<i class="ic ic-googleplus"></i><span class="hidden">Google+</span>
+					</a>
+					<div class="clear"></div>
+				</div>
+				
+				<aside class="post-tags">
+					<a href="../../../../tag/linux/index.html">linux</a> <a href="../../../../tag/nmap/index.html">nmap</a> <a href="../../../../tag/debian/index.html">debian</a>
+				</aside>
+				
+				<div class="clear"></div>
+				
+				<aside class="post-author">
+					<div class="post-author-bio">
+						<h4 class="post-author-name"><a href="../../../../author/arnaud/index.html">Arnaud</a></h4>
+							<span class="post-author-location"><i class="ic ic-location"></i> France</span>
+							<span class="post-author-website"><a href="http://magiknono.github.io"><i class="ic ic-link"></i> Website</a></span>
+					</div>
+					<div class="clear"></div>
+				</aside>
+
+			</section>
+			
+
+			<section class="post-comments">
+				<a id="show-disqus" class="post-comments-activate">Show Comments</a>
+			    <div id="disqus_thread"></div>
+
+			</section>
+
+			<aside class="post-nav">
+					<a class="post-nav-prev" href="../../../../2015/12/20/hello-world/index.html">
+						<section class="post-nav-teaser">
+							<i class="ic ic-arrow-right"></i>
+							<h2 class="post-nav-title">Hello world !</h2>
+							<p class="post-nav-excerpt">Debian Open the terminal : apt-get install hello  hello     Hello, world!&hellip;</p>
+						</section>
+					</a>
+				<div class="clear"></div>
+			</aside>
+
+
+		</div>
+	</article>
+</main>
+
+
+		<div id="body-class" style="display: none;" class="post-template tag-linux tag-nmap tag-debian"></div>
+	
+		<footer id="footer">
+			<div class="inner">
+				<section class="credits">
+					<span class="credits-theme">Theme <a href="https://github.com/zutrinken/attila">Attila</a> by <a href="http://zutrinken.com" rel="nofollow">zutrinken</a></span>
+					<span class="credits-software">Published with <a href="http://ghost.org">Ghost</a></span>
+				</section>
+			</div>
+		</footer>
+	</section>
+
+	<script type="text/javascript" src="../../../../assets/js/script.js?v=2af72be249"></script>
+
+	<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-71931854-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+</body>
+</html>
