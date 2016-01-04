@@ -703,14 +703,17 @@ img {
   background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.5) 100%); }
 
 .blog-logo {
-  position: fixed;
-  max-width: 2em;
-  left: 0;
-  top: 0;
-  margin: 1em;
-  z-index: 200; }
+  position:fixed;
+  max-width: 4em;
+  left:1em;
+  top:1em;
+  z-index: 200;
+
+   }
 
 .blog-logo img {
+-moz-border-radius: 50%;
+border-radius: 50%;
   display: block;
   margin: 0 auto; }
 
@@ -1593,7 +1596,9 @@ img {
   .inner {
     padding: 0 16px; }
   .post-template #main-header {
-    padding: 16px 0; }
+    padding: 16px 0;
+
+     }
   #main-nav a {
     margin: 16px; }
   .post-author-avatar {
